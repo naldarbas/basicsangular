@@ -1,0 +1,45 @@
+<!-- Basics -->
+<!-- one-way-binding -->
+<p [textContent]="postNameinit"></p>
+<p>{{postNameinit}}</p>
+<!-- event-binding -->
+<label>Post Name : </label>
+<input class="form-control" type="text" (input)="onUpdatePostName($event)"><br>
+<button class="btn btn-primary" (click)="onCreatePostone()" > Add Post</button><br>
+<h6> Entered Post is: {{postName}}</h6>
+<hr>
+<!-- tow-way-binding used with update info -->
+<label>Post Name : </label>
+<input type="text" class="form-control" [(ngModel)]="postName">
+<button class="btn btn-primary" (click)="onCreatePost()" [disabled]="postName ==='' "> Add Post</button>
+<h6> Entered Post is: {{postName}}</h6><br>
+
+<p> {{postCreation}}</p>
+<hr>
+<!-- using ngIf  -->
+
+<label>Post Name : </label>
+<input type="text" class="form-control" [(ngModel)]="postName">
+<button class="btn btn-primary" (click)="onCreatePost()" [disabled]="!allowCreation"> Add Post</button>
+<h6 *ngIf="allowCreation;"> {{postName}}</h6><br>
+<!-- using ngIf else  -->
+<!-- <h6 *ngIf="allowCreation; else elseBlock"> {{postName}}</h6><br> -->
+<!-- <div>
+    <ng-template #elseBlock>
+        <h6> No Post Created</h6>
+    </ng-template>
+</div> -->
+<p > {{postCreation}}</p>
+<hr>
+<!-- using ngFor  -->
+<ul>
+    <li *ngFor="let person of people"> 
+      {{ person.name }}
+    </li>
+ </ul>
+<!-- using ngclass-->
+ <h1 [ngClass]="{'val':val==='Njoud'}">{{val}} </h1>
+<!-- display other component -->
+<app-post> </app-post>
+
+
